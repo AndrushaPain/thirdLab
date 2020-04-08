@@ -28,13 +28,23 @@ namespace thirdLab
                 switch (rnd.Next() % 3) // генерирую случайное число от 0 до 2 (ну остаток от деления на 3)
                 {
                     case 0: // если 0, то планета
-                        this.spaceObjectList.Add(new Planet());
+                        this.spaceObjectList.Add(new Planet
+                        {
+                            remoteness = rnd.Next() % 101
+                        } );
+                        
                         break;
                     case 1: // если 1 то звезда
-                        this.spaceObjectList.Add(new Star());
+                        this.spaceObjectList.Add(new Star
+                            {
+                            remoteness = rnd.Next() % 101
+                        });
                         break;
                     case 2: // если 2 то комета
-                        this.spaceObjectList.Add(new Comet());
+                        this.spaceObjectList.Add(new Comet
+                        {
+                            remoteness = rnd.Next() % 101
+                        });
                         break;
                         // появление других чисел маловероятно
                 }
@@ -86,19 +96,7 @@ namespace thirdLab
             // где хранится экземпляр класса
             this.spaceObjectList.RemoveAt(0);
 
-            // предложим покупателю его объект
-            if (spaceObject is Planet)
-            {
-                txtOut.Text = "Планета";
-            }
-            else if (spaceObject is Star)
-            {
-                txtOut.Text = "Звезда";
-            }
-            else if (spaceObject is Comet)
-            {
-                txtOut.Text = "Комета";
-            }
+            txtOut.Text = spaceObject.GetInfo();
 
             // обновим информацию о количестве объектов на форме
             ShowInfo();
