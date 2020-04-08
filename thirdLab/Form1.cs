@@ -18,17 +18,16 @@ namespace thirdLab
             InitializeComponent();
             ShowInfo();
         }
-
         private void btnRefill_Click(object sender, EventArgs e)
         {
             this.spaceObjectList.Clear();
             var rnd = new Random();
             for (var i = 0; i < 10; ++i)
             {
-                switch (rnd.Next() % 3) // генерирую случайное число от 0 до 2 (ну остаток от деления на 3)
+                switch (rnd.Next() % 3) // генерирую случайное число от 0 до 2 
                 {
                     case 0: // если 0, то планета
-                        this.spaceObjectList.Add(Planet.Generate());                                
+                        this.spaceObjectList.Add(Planet.Generate());
                         break;
                     case 1: // если 1 то звезда
                         this.spaceObjectList.Add(Star.Generate());
@@ -47,47 +46,39 @@ namespace thirdLab
             int planetsCount = 0;
             int starsCount = 0;
             int cometsCount = 0;
-
             // пройдемся по всему списку
             foreach (var spaceObject in this.spaceObjectList)
             {
-                 // проверяем какой именно объект
-                if (spaceObject is Planet) 
+                // проверяем какой именно объект
+                if (spaceObject is Planet)
                 {
-                    planetsCount += 1;
+                    planetsCount += 1;//+планета
                 }
                 else if (spaceObject is Star)
                 {
-                    starsCount += 1;
+                    starsCount += 1; //+звезда
                 }
                 else if (spaceObject is Comet)
                 {
-                    cometsCount += 1;
+                    cometsCount += 1; //+комета
                 }
             }
-
-            // а ну и вывести все это надо на форму
-            txtInfo.Text = "Планета\tЗвезда\tКомета"; 
+            // выводим на форму наименование объектов и их количество
+            txtInfo.Text = "Планета\tЗвезда\tКомета";
             txtInfo.Text += "\n";
             txtInfo.Text += String.Format("{0}\t{1}\t{2}", planetsCount, starsCount, cometsCount);
         }
-
         private void btnGet_Click(object sender, EventArgs e)
         {
-            if (this.spaceObjectList.Count == 0)
+            if (this.spaceObjectList.Count == 0) //если объекты закончились
             {
-                txtOut.Text = "CLEAR SPACE";
+                txtOut.Text = "EMPTY SPACE";
                 return;
             }
-
             // взяли первый объект
             var spaceObject = this.spaceObjectList[0];
-            // тут вам не реальность, взятие это на самом деле создание указателя на область в памяти
-            // где хранится экземпляр класса
             this.spaceObjectList.RemoveAt(0);
-
             txtOut.Text = spaceObject.GetInfo();
-
             // обновим информацию о количестве объектов на форме
             ShowInfo();
         }

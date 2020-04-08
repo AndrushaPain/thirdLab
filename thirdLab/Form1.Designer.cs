@@ -36,7 +36,7 @@
             // 
             // btnRefill
             // 
-            this.btnRefill.Location = new System.Drawing.Point(118, 25);
+            this.btnRefill.Location = new System.Drawing.Point(160, 25);
             this.btnRefill.Name = "btnRefill";
             this.btnRefill.Size = new System.Drawing.Size(103, 23);
             this.btnRefill.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // btnGet
             // 
-            this.btnGet.Location = new System.Drawing.Point(287, 116);
+            this.btnGet.Location = new System.Drawing.Point(354, 115);
             this.btnGet.Name = "btnGet";
             this.btnGet.Size = new System.Drawing.Size(75, 81);
             this.btnGet.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             this.txtOut.Location = new System.Drawing.Point(48, 95);
             this.txtOut.Name = "txtOut";
-            this.txtOut.Size = new System.Drawing.Size(233, 127);
+            this.txtOut.Size = new System.Drawing.Size(300, 127);
             this.txtOut.TabIndex = 2;
             this.txtOut.Text = "";
             // 
@@ -66,7 +66,7 @@
             // 
             this.txtInfo.BackColor = System.Drawing.SystemColors.Control;
             this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtInfo.Location = new System.Drawing.Point(75, 54);
+            this.txtInfo.Location = new System.Drawing.Point(116, 54);
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ReadOnly = true;
             this.txtInfo.Size = new System.Drawing.Size(188, 35);
