@@ -11,8 +11,10 @@ namespace thirdLab
         public int remoteness = 0;
         public virtual String GetInfo()
     {
-        return "Я космический объект";
-    }
+        
+           var str = String.Format("\nУдалённость от Земли: {0}", this.remoteness);
+            return str;
+        }
         
     }
     public class Planet : SpaceObject
@@ -24,7 +26,7 @@ namespace thirdLab
         public override String GetInfo()
         {
             var str = "Я планета";
-            str+= String.Format("\nУдалённость от Земли: {0}", this.remoteness);
+            str+= base.GetInfo();
             return str;
         }
     }
@@ -39,7 +41,7 @@ namespace thirdLab
         public override String GetInfo()
         {
             var str = "Я звезда";
-            str += String.Format("\nУдалённость от Земли: {0}", this.remoteness);
+            str += base.GetInfo();
             return str;
         }
     }
@@ -51,7 +53,7 @@ namespace thirdLab
         public override String GetInfo()
         {
             var str = "Я комета";
-            str += String.Format("\nУдалённость от Земли: {0}", this.remoteness);
+            str += base.GetInfo();
             return str;
         }
     }
